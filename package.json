@@ -31,7 +31,7 @@
     "cookie-parser": "^1.4.5",
     "express": "^4.16.4",
     "http": "0.0.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "mocha": "^7.1.2",
     "moment": "^2.25.3",
     "nodemailer": "^6.4.6",
@@ -52,7 +52,8 @@
     "typescript": "^3.9.2",
     "winston": "^3.2.1",
     "ws": "^7.3.0",
-    "zero-fill": "^2.2.3"
+    "zero-fill": "^2.2.3",
+    "@snyk/protect": "latest"
   },
   "engines": {
     "node": "^8.3.0 || ^10"
@@ -85,7 +86,9 @@
     "postinstall": "patch-package",
     "test": "mocha 'test/**/*.test.js'",
     "setup": "pm2 deploy ecosystem.config.js production setup",
-    "deploy": "pm2 deploy ecosystem.config.js production"
+    "deploy": "pm2 deploy ecosystem.config.js production",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -99,5 +102,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.0",
     "prettier": "^1.19.1"
-  }
+  },
+  "snyk": true
 }
